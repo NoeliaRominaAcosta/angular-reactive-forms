@@ -36,7 +36,7 @@ export class FormUtils {
         case 'email':
           return `El valor ingresado no tiene formato de correo `;
         case 'emailTaken':
-          
+
           return `El correo electronico ya está siendo usado por otro usuario`;
 
         case 'pattern':
@@ -44,7 +44,8 @@ export class FormUtils {
             return `El valor ingresado no luce como un correo `
           }
         return 'Error de patrón expresión regular'
-
+        case 'notStrider':
+          return `No se puede usar ese username`;
         default:
           return 'Campo no válido'
       }
@@ -101,6 +102,12 @@ export class FormUtils {
       }
     }
     return null;
+  }
+
+  static notStrider(control: AbstractControl): ValidationErrors | null {
+
+    const formValue = control.value;
+    return formValue === 'strider' ? { notStrider: true } : null;
   }
 }
 

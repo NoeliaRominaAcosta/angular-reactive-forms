@@ -33,6 +33,7 @@ export class RegisterPageComponent {
         Validators.required,
         Validators.minLength(6),
         Validators.pattern(FormUtils.notOnlySpacesPattern),
+        FormUtils.notStrider
       ],
     ],
     password: ['', [Validators.required, Validators.minLength(6)]],
